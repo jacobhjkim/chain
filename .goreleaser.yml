@@ -3,24 +3,7 @@ before:
     - go mod download
 
 builds:
-  - id: "settlus-darwin"
-    main: .
-    binary: bin/
-    env:
-      - CGO_ENABLED=1
-      - CC=o64-clang
-      - CXX=o64-clang++
-    goos:
-      - darwin
-    goarch:
-      - amd64
-    flags:
-      - -tags=cgo
-    ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-darwin-arm64"
-    main: .
-    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=oa64-clang
@@ -34,8 +17,6 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-linux"
-    main: .
-    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=gcc
@@ -49,8 +30,6 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-linux-arm64"
-    main: .
-    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=aarch64-linux-gnu-gcc
@@ -64,8 +43,6 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-windows"
-    main: .
-    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=x86_64-w64-mingw32-gcc
@@ -81,12 +58,11 @@ builds:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
 
 archives:
-  - name_template: '{{ .ProjectName }}_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
+  - name_template: 'settlus_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
     format_overrides:
       - goos: windows
         format: zip
     builds:
-      - settlusd-darwin
       - settlusd-darwin-arm64
       - settlusd-windows
       - settlusd-linux
