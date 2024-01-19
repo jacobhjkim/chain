@@ -2,7 +2,6 @@ name: Release
 # This workflow helps with creating releases.
 # This job will only be triggered when a tag (vX.X.x) is pushed
 on:
-  pull_request:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
@@ -22,9 +21,10 @@ jobs:
         with:
           go-version: "1.21"
           check-latest: true
-      - name: Create release
-        uses: goreleaser/goreleaser-action@v5
-        with:
-          args: build
+      - name: setup release environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |-
+          echo 'GITHUB_TOKEN=${{secrets.GITHUB_TOKEN}}' > .release-env
+      - name: Create release
+        run: make release
