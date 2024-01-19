@@ -127,7 +127,8 @@ builds:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=interop-node -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   
 archives:
-  - name_template: 'settlus_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
+  - id: settlusd
+    name_template: 'settlus_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
     format_overrides:
       - goos: windows
         format: zip
@@ -137,7 +138,8 @@ archives:
       - settlusd-linux
       - settlusd-linux-arm64
 
-  - name_template: 'interop-node_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
+  - id: interop-node 
+    name_template: 'interop-node_{{ .Version }}_{{- title .Os }}_{{ .Arch }}'
     format_overrides:
       - goos: windows
         format: zip
