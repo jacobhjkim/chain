@@ -4,8 +4,8 @@ before:
 
 builds:
   - id: "settlus-darwin"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: .
+    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=o64-clang
@@ -19,8 +19,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-darwin-arm64"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: .
+    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=oa64-clang
@@ -34,8 +34,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-linux"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: .
+    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=gcc
@@ -49,8 +49,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-linux-arm64"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: .
+    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=aarch64-linux-gnu-gcc
@@ -64,8 +64,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "settlusd-windows"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: .
+    binary: bin/
     env:
       - CGO_ENABLED=1
       - CC=x86_64-w64-mingw32-gcc
