@@ -65,8 +65,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "interop-node-darwin-arm64"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: ./tools/interop-node
+    binary: bin/interop-node
     env:
       - CGO_ENABLED=1
       - CC=oa64-clang
@@ -80,8 +80,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "interop-node-linux"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: ./tools/interop-node
+    binary: bin/interop-node
     env:
       - CGO_ENABLED=1
       - CC=gcc
@@ -95,8 +95,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "interop-node-linux-arm64"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: ./tools/interop-node
+    binary: bin/interop-node
     env:
       - CGO_ENABLED=1
       - CC=aarch64-linux-gnu-gcc
@@ -110,8 +110,8 @@ builds:
     ldflags:
       - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=settlus -X github.com/cosmos/cosmos-sdk/version.AppName=settlusd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
   - id: "interop-node-windows"
-    main: ./cmd/settlusd
-    binary: bin/settlusd
+    main: ./tools/interop-node
+    binary: bin/interop-node
     env:
       - CGO_ENABLED=1
       - CC=x86_64-w64-mingw32-gcc
